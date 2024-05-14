@@ -6,6 +6,8 @@ import { useTonConnect } from "../hooks/useTonConnect";
 import { Nullable } from 'primereact/ts-helpers';
 import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
+import { Badge } from 'primereact/badge';
+import { Avatar } from 'primereact/avatar';
 
 import './style.css';
 import 'primereact/resources/themes/bootstrap4-dark-blue/theme.css';
@@ -19,7 +21,7 @@ export const App: FC = () => {
     sendIncrement
   } = useSumContract();
 
-  const { connected } = useTonConnect(); 
+  const { connected } = useTonConnect();
 
   return (
     <div className="surface-section px-4 py-5 md:px-6 lg:px-8">
@@ -47,14 +49,19 @@ export const App: FC = () => {
           </div>
 
           <div className="mt-3 lg:mt-5">
-            <Card 
-              title="Sum smartcontract" 
+            <Card
+              title={<>
+                <div className='inline-block pr-5 p-overlay-badge'>
+                  Sum smart-contract
+                  <Badge value="Testnet" severity="info"></Badge>
+                </div>
+              </>}
               subTitle={<>
                 <span>Current value: {counter_value ?? <><i className="pi pi-spin pi-spinner" style={{ fontSize: '1rem' }}></i> Loading</>}</span>
               </>}
               footer={<>
                 <div className="flex justify-content-between align-items-start flex-row">
-                  <InputNumber disabled={!connected || !counter_value} showButtons  value={value} onValueChange={(e) => setValue(e.value)} min={0} max={100} />
+                  <InputNumber disabled={!connected || !counter_value} showButtons value={value} onValueChange={(e) => setValue(e.value)} min={0} max={100} />
                   <Button disabled={!connected || !counter_value} label="Submit" icon="pi pi-check" onClick={() => sendIncrement(value as number)} />
                 </div>
               </>}
@@ -62,7 +69,7 @@ export const App: FC = () => {
               <p className="m-0">
                 Change sum of counter by typing any number and confirming action
               </p>
-            </Card>        
+            </Card>
           </div>
         </div>
       </div>
