@@ -7,7 +7,6 @@ import { Nullable } from 'primereact/ts-helpers';
 import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
 import { Badge } from 'primereact/badge';
-import { Avatar } from 'primereact/avatar';
 
 import './style.css';
 import 'primereact/resources/themes/bootstrap4-dark-blue/theme.css';
