@@ -7,6 +7,7 @@ import { Nullable } from 'primereact/ts-helpers';
 import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
 import { Badge } from 'primereact/badge';
+import WebApp from '@twa-dev/sdk'
 
 import './style.css';
 import 'primereact/resources/themes/bootstrap4-dark-blue/theme.css';
@@ -21,6 +22,10 @@ export const App: FC = () => {
   } = useSumContract();
 
   const { connected } = useTonConnect();
+
+  const showAlert = (_ : any) => {
+    WebApp.showAlert("Hey there!");
+  };
 
   return (
     <div className="surface-section px-4 py-5 md:px-6 lg:px-8">
@@ -67,6 +72,10 @@ export const App: FC = () => {
               className="md:w-25rem">
               <p className="m-0">
                 Change sum of counter by typing any number and confirming action
+              </p>
+              <p>Current platofm: {WebApp.platform}</p>
+              <p>
+                <a onClick={showAlert}>[show alert]</a>
               </p>
             </Card>
           </div>
