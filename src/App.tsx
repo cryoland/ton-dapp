@@ -60,8 +60,8 @@ export const App: FC = () => {
               </>}
               footer={<>
                 <div className="flex justify-content-between align-items-start flex-row">
-                  <InputNumber disabled={!connected || !counter_value} showButtons value={value} onValueChange={(e) => setValue(e.value)} min={0} max={100} />
-                  <Button disabled={!connected || !counter_value} label="Submit" icon="pi pi-check" onClick={() => sendIncrement(value as number)} />
+                  <InputNumber disabled={!connected} showButtons value={value} onValueChange={(e) => setValue(e.value)} min={0} max={100} />
+                  <Button disabled={!connected} label="Submit" icon="pi pi-check" onClick={() => sendIncrement(value as number)} />
                 </div>
               </>}
               className="md:w-25rem">

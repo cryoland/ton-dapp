@@ -25,15 +25,15 @@ export function useSumContract() {
   useEffect(() => {
     async function getValue() {
       setInterval(async () => {
-
         if (!sumContract) return;
-          setContractData(null);
+        try {
           const val = await sumContract.getData();
           setContractData({
             counter_value: val.sum,
             recent_sender: val.recent_sender,
-        });
-
+          });
+        }
+        catch { }
       }, 5000);
     }
     getValue();

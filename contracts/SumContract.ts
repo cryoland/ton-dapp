@@ -1,6 +1,5 @@
 import { Address, beginCell, Cell, Contract, contractAddress, ContractProvider, Sender, SendMode } from "@ton/core";
 
-
 export type SumContractConfig = {
     address: Address;
     sum: number;
