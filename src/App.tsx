@@ -13,6 +13,7 @@ import './style.css';
 import 'primereact/resources/themes/bootstrap4-dark-blue/theme.css';
 import "primeflex/primeflex.css";
 import 'primeicons/primeicons.css';
+import { Link } from 'react-router-dom';
 
 export const App: FC = () => {
   const [value, setValue] = useState<Nullable<number | null>>(0);
@@ -75,8 +76,11 @@ export const App: FC = () => {
               </p>
               <p>Current platofm: {WebApp.platform}</p>
               <p>
-                <a onClick={showAlert}>[show alert]</a>
+                <a onClick={showAlert}>[show alert]</a>              
               </p>
+              <p><Link to="/ton-dapp/is-coming">Is coming</Link></p>
+              <p><Link to="/ton-dapp/almost-here">Almost here</Link></p>
+              <p><Link to="/ton-dapp/knock">Knock Knock</Link></p>
             </Card>
           </div>
         </div>

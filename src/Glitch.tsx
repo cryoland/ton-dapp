@@ -1,8 +1,9 @@
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-type Props = { image: string };
+export const Glitch = () => {
+    let { id } = useParams();
 
-export const Glitch = ({ image } : Props) => {
     useEffect(() => {
         const jquery = document.createElement('script');
         jquery.src = 'https://code.jquery.com/jquery-2.2.4.min.js';
@@ -14,13 +15,13 @@ export const Glitch = ({ image } : Props) => {
             const glitch = document.createElement('script');
             glitch.src = 'mgGlitch.min.js';
             document.body.appendChild(glitch);
-        }, 100);
+        }, 200);
 
         const t2 = setTimeout(() => {
             const init = document.createElement('script');
             init.src = 'run-glitch.js';
             document.body.appendChild(init);
-        }, 200);
+        }, 400);
 
         return () => {
             clearTimeout(t1);
@@ -47,7 +48,7 @@ export const Glitch = ({ image } : Props) => {
         
     </style>
     <div class="container0">
-    <div class="glitch-img" style="background: url('${image}') no-repeat center center, black;
+    <div class="glitch-img" style="background: url('${id}.png') no-repeat center center, black;
                                    backgrouod-size: 75vh;"></div>
    </div>
     `;
