@@ -1,12 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import { App } from './App';
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Glitch } from './Glitch';
 
 const manifestUrl = 'https://cryoland.github.io/ton-dapp/manifest.json';
